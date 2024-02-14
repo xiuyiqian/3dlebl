@@ -5,14 +5,14 @@ import html2canvas from 'html2canvas';
 const DownloadComponent = ({ screenshotTarget }) => {
   useEffect(() => {
     const handleDownload = () => {
-      html2canvas(screenshotTarget).then((canvas) => {
-        const base64image = canvas.toDataURL("image/png");
+        const base64image = screenshotTarget.toDataURL("image/png");
+        console.log(base64image);
         const anchor = document.createElement('a');
         anchor.setAttribute("href", base64image);
         anchor.setAttribute("download", "my-image.png");
         anchor.click();
         anchor.remove();
-      });
+      ;
     };
 
     // Attach the event listener
